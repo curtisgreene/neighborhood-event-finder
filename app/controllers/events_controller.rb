@@ -12,10 +12,10 @@ class EventsController < ApplicationController
     render :search
   end
 
-  def parse
+  def whats_nearby
     base_url = "https://api.cityofnewyork.us/calendar/v1/search.htm?app_id=a64cc336&app_key=4b82d0291b83dc1c52ee0f19d9f4f93c&"
-    #do something with the params to interpolate into the url
-    complete_url = base_url + something
+    zip_url = "zip=#{current_user.zip}"
+    complete_url = base_url + zip_url
     response = RestClient.get(complete_url)
     data = JSON.parse(response)
     @all_events = []
