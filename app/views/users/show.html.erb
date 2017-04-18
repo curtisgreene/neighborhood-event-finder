@@ -1,8 +1,23 @@
 <h1>User Show Page!</h1>
+<h4>Name:</h4>
 <%= @user.name %><br>
+<h4>Zip Code:</h4>
 <%= @user.zip %><br>
+<h4>Borough</h4>
 <%= @user.borough %><br>
+<h4>Username:</h4>
 <%= @user.username %><br>
+
+<h3>Upcoming Events</h3>
+<ul>
+<% @user.events.each do |event| %>
+<li><%= link_to event.name, event_path(event) %> - <%= event.start_time %>
+<ul>
+  <li><%= link_to "Delete", cancel_path(:event_id => event.id), method: 'delete' %></li>
+</ul>
+</li>
+<% end %>
+</ul>
 
 <% if session[:user_id] == @user.id %>
 <%= link_to "Edit My Information", edit_user_path(@user) %>

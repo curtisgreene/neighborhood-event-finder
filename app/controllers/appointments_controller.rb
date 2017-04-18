@@ -14,4 +14,10 @@ class AppointmentsController < ApplicationController
     redirect_to user_path(@user)
   end
 
+  def destroy
+    #byebug
+    @appointment = Appointment.find_by(user_id: current_user.id, event_id: params[:event_id])
+    @appointment.delete
+    redirect_to user_path(current_user)
+  end
 end
