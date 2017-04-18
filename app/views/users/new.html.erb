@@ -1,0 +1,14 @@
+<h1>Welcome! Please sign up!</h1>
+<%= form_for(@user) do |f| %>
+<%= f.label :name %><br>
+<%= f.text_field :name %><br>
+<%= f.label :username %><br>
+<%= f.text_field :username %><br>
+<%= f.label :zip %><br>
+<%= f.number_field :zip %><br>
+<%= f.label :borough %><br>
+<%= f.text_field :borough %><br>
+<%= f.label :password %><br>
+<%= f.password_field :password %><br>
+<%= f.submit "Sign Up" %>
+<% end %>

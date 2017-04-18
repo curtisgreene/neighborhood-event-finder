@@ -1,0 +1,10 @@
+<h1>User Show Page!</h1>
+<%= @user.name %><br>
+<%= @user.zip %><br>
+<%= @user.borough %><br>
+<%= @user.username %><br>
+
+<% if session[:user_id] == @user.id %>
+<%= link_to "Edit My Information", edit_user_path(@user) %>
+<% end %><br>
+<%= link_to "Log Out", logout_path, method: 'delete' %>

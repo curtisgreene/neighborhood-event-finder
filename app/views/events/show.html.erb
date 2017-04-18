@@ -1,0 +1,17 @@
+<h1>Learn more about <%= @event.name %></h1>
+<ul>
+  <li>
+    <%= @event.description %>
+  </li>
+  <li>
+    <%= @event.start_time %>
+  </li>
+  <li>
+    <%= @event.end_time %>
+  </li>
+  <li>
+    <%= @event.location %>
+  </li>
+</ul>
+
+<%= link_to "Create Appointment", "/appointments/#{@event.id}", method:'post'%>

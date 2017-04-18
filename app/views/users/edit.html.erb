@@ -1,0 +1,18 @@
+<% if session[:user_id] == @user.id %>
+<h1>Edit Your Information!</h1>
+<%= form_for(@user) do |f| %>
+<%= f.label :name %><br>
+<%= f.text_field :name %><br>
+<%= f.label :username %><br>
+<%= f.text_field :username %><br>
+<%= f.label :zip %><br>
+<%= f.number_field :zip %><br>
+<%= f.label :borough %><br>
+<%= f.text_field :borough %><br>
+<%= f.label :password %><br>
+<%= f.password_field :password %><br>
+<%= f.submit "Update Info" %>
+<% end %>
+<% else %>
+<p>Nosey little bugger, ain't ya?</p>
+<% end %>
