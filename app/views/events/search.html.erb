@@ -1,1 +1,11 @@
 <h1>Search for Events</h1>
+
+<%= form_tag events_path method:'post' do %>
+<%= label_tag :name %>
+<%= text_field_tag "name" %><br>
+<%= label_tag :borough %>
+<%= text_field_tag "boroughs" %><br>
+<%= label_tag :zip %>
+<%= number_field_tag "zip" %><br>
+<%= submit_tag "Search" %>
+<% end %>

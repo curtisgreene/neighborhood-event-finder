@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :users
-  resources :events
+  resources :events, only: [:index]
 
 
   #sessions
@@ -15,8 +15,9 @@ Rails.application.routes.draw do
   delete '/cancel', to: 'appointments#destroy', as: :cancel
 
   #search
-
+  get '/events/nearby', to: 'events#nearby', as: :nearby_events
   get '/search', to: 'events#search', as: :search
-  post '/events', to: 'events#parse'
+  post '/events', to: 'events#results'
+  get '/events/:id', to: 'events#show', as: :event
 
 end

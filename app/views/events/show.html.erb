@@ -7,11 +7,15 @@
     <%= @event.start_time %>
   </li>
   <li>
-    <%= @event.end_time %>
+    <%= @event.borough %>
   </li>
   <li>
     <%= @event.location %>
   </li>
 </ul>
 
+<% if current_user.events.include?(@event)%>
+<p>You are already attending this event! Have fun!</p>
+<% else %>
 <%= link_to "Create Appointment", "/appointments/#{@event.id}", method:'post'%>
+<% end %>

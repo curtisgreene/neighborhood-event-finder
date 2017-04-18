@@ -1,0 +1,9 @@
+<h1>Here are events going on in your borough!</h1>
+
+<ul>
+  <% @nearby_events.each do |event| %>
+  <li>
+   <%= link_to event.name, event_path(event) %>
+  </li>
+  <% end %>
+</ul>
