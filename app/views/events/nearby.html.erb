@@ -7,3 +7,12 @@
   </li>
   <% end %>
 </ul>
+
+<%= week_calendar events: @nearby_events do |date, nearby_events| %>
+  <%= date %>
+  <% nearby_events.each do |nearby_event| %>
+	  <div>
+	    <%= link_to nearby_event.name, event_path(nearby_event) %>
+	  </div><br>
+  <% end %>
+<% end %>
