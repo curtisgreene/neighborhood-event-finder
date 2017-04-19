@@ -1,8 +1,8 @@
 <h1>Search for Events</h1>
 
 <%= form_tag events_path method:'post' do %>
-<%= label_tag :name %>
-<%= text_field_tag "name" %><br>
+<%= label_tag :keywords %>
+<%= text_field_tag "keywords" %><br>
 <%= label_tag :boroughs %>
 <% [['Bronx', 'Bx'], ['Brooklyn', 'Bk'], ['Manhattan', 'Mn'], ['Queens', 'Qn'], ['Staten Island', 'SI']].each do |b| %>
 	<%= label_tag(b.first) %>
@@ -10,5 +10,27 @@
 <% end %><br>
 <%= label_tag :zip %>
 <%= number_field_tag "zip" %><br>
+<%= label_tag :catergories %>
+<% [
+ "Athletic",
+ "Business & Finance",
+ "City Government Office",
+ "Cultural",
+ "Education",
+ "Environment",
+ "Featured",
+ "Free",
+ "General Events",
+ "Health & Public Safety",
+ "Hearings and Meetings",
+ "Holidays",
+ "Kids and Family ",
+ "Parks & Recreation",
+ "Street and Neighborhood",
+ "Tours",
+ "Volunteer"].each do |c| %>
+	<%= label_tag(c) %>
+  <%= check_box_tag("categories[]", c) %>
+<% end %><br>
 <%= submit_tag "Search" %>
 <% end %>
