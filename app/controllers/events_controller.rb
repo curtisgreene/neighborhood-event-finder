@@ -60,7 +60,7 @@ class EventsController < ApplicationController
       event = Event.find_or_create_by(name: event_data["name"], start_time: event_data["startDate"])
       event.name = event_data["name"]
       event.description = event_data["shortDesc"]
-      event.start_time = event_data["startDate"].chomp("-04:00")
+      event.start_time = event_data["startDate"]#.chomp("-04:00")
       event.end_time = event_data["endDate"]
       event.location = event_data["location"]
       event.borough = event_data["boroughs"] # can contain multiple borough

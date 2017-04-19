@@ -4,14 +4,33 @@
     <%= @event.description %>
   </li>
   <li>
-    <%= @event.start_time %>
+    <%= "#{@event.start_time.strftime("%A, %B %d %I:%M %p")}" %>
+    <% if @event.end_time.present? %>
+    <%= "- #{@event.end_time.strftime("%A, %B %d %I:%M %p")}" %>
+    <% end %>
   </li>
+  <% if @event.city.present? %>
   <li>
-    <%= @event.borough.join(", ") %>
+    <%= @event.city %>
   </li>
+  <% else %>
+  <li>
+    <%= borough_names(@event.borough) %>
+  </li>
+  <% end %>
+  <% if @event.location.present? %>
   <li>
     <%= @event.location %>
   </li>
+  <% end %>
+  <li>
+    <%= @event.address %>
+  </li>
+  <% if @event.website.present? %>
+  <li>
+    <%= link_to "Learn more about this event", @event.website %>
+  </li>
+  <% end %>
 </ul>
 
 <% if current_user.events.include?(@event)%>
