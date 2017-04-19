@@ -7,7 +7,7 @@
     <%= @event.start_time %>
   </li>
   <li>
-    <%= @event.borough %>
+    <%= @event.borough.join(", ") %>
   </li>
   <li>
     <%= @event.location %>

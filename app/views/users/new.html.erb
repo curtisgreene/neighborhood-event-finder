@@ -7,7 +7,11 @@
 <%= f.label :zip %><br>
 <%= f.number_field :zip %><br>
 <%= f.label :borough %><br>
-<%= f.text_field :borough %><br>
+<%= f.select(:borough) do %>
+  <% [['Bronx', 'Bx'], ['Brooklyn', 'Bk'], ['Manhattan', 'Mn'], ['Queens', 'Qn'], ['Staten Island', 'SI']].each do |b| %>
+    <%= content_tag(:option, b.first, value: b.last) %>
+  <% end %>
+<% end %><br>
 <%= f.label :password %><br>
 <%= f.password_field :password %><br>
 <%= f.submit "Sign Up" %>

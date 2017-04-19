@@ -41,12 +41,17 @@ class EventsController < ApplicationController
     url_additions = []
     keys_we_want.each do |key|
       if params[key].present?
-        url_additions << "&#{key}=#{params[key].strip}"
+        if params[key].class == Array
+          #join the array with whatever (%20+) and shovel into url_additions
+        else
+          url_additions << "&#{key}=#{params[key]}"
+        end
       end
     end
-    base_url = "https://api.cityofnewyork.us/calendar/v1/search.htm?app_id=a64cc336&app_key=4b82d0291b83dc1c52ee0f19d9f4f93c&"
+    base_url = "https://api.cityofnewyork.us/calendar/v1/search.htm?app_id=a64cc336&app_key=4b82d0291b83dc1c52ee0f19d9f4f93c"
     #### search_terms SOMETHING GOES HERE ####
     complete_url = base_url + url_additions.join("") + "&sort=DATE"
+    byebug
     response = RestClient.get(complete_url)
     data = JSON.parse(response)
     @results = []
