@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :current_user, :logged_in?, :logged_in_user, :borough_names, :readable_time
+  helper_method :current_user, :logged_in?, :logged_in_user, :borough_names, :borough_name, :readable_time
 
   private
 
@@ -34,6 +34,21 @@ class ApplicationController < ActionController::Base
             "Bronx"
         end
       end.join(", ")
+    end
+
+    def borough_name(name) #for user generated borough info, ie, not in an array
+      case name
+        when "Mn"
+          "Manhattan"
+        when "Qn"
+          "Queens"
+        when "SI"
+          "Staten Island"
+        when "Bk"
+          "Brooklyn"
+        when "Bx"
+          "Bronx"
+      end
     end
 
     def readable_time(time)

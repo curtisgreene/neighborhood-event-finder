@@ -1,7 +1,9 @@
 <h1>Search Results</h1>
 
 
-
+<% if @results.empty? %>
+<h4>No events matched your search. <%= link_to "Please try again", search_path %></h4>
+<% end %>
 <ul>
   <% @results.each do |event| %>
   <li>

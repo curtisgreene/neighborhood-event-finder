@@ -4,7 +4,7 @@ class Event < ApplicationRecord
   has_many :users, through: :appointments
 
 	def assign(event_data)
-		name = event_data["name"]
+	  name = event_data["name"]
     description = event_data["shortDesc"]
     start_time = event_data["startDate"]
     end_time = event_data["endDate"]
@@ -18,5 +18,5 @@ class Event < ApplicationRecord
     zip = event_data["zip"]
     address = event_data["address"]
   end
-  
+   
 end
