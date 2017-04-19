@@ -11,7 +11,7 @@
 <h3>Upcoming Events</h3>
 <ul>
 <% @user.events.each do |event| %>
-<li><%= link_to event.name, event_path(event) %> - <%= event.start_time.strftime("%A, %B %d %I:%M %p") %>
+<li><%= link_to event.name, event_path(event) %> - <%= readable_time(event.start_time) %>
 <ul>
   <li><%= link_to "Delete", cancel_path(:event_id => event.id), method: 'delete' %></li>
 </ul>

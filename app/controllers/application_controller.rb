@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :current_user, :logged_in?, :logged_in_user, :borough_names
+  helper_method :current_user, :logged_in?, :logged_in_user, :borough_names, :readable_time
 
   private
 
@@ -34,6 +34,10 @@ class ApplicationController < ActionController::Base
             "Bronx"
         end
       end.join(", ")
+    end
+
+    def readable_time(time)
+      time.strftime("%A, %B %d %I:%M %p")
     end
 
 end

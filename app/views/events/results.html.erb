@@ -6,6 +6,11 @@
   <% @results.each do |event| %>
   <li>
    <%= link_to event.name, event_path(event) %>
+   <ul>
+     <li>
+       <%= readable_time(event.start_time) %>
+     </li>
+   </ul>
   </li>
   <% end %>
 </ul>

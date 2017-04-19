@@ -10,27 +10,5 @@
 <% end %><br>
 <%= label_tag :zip %>
 <%= number_field_tag "zip" %><br>
-<%= label_tag :catergories %>
-<% [
- "Athletic",
- "Business & Finance",
- "City Government Office",
- "Cultural",
- "Education",
- "Environment",
- "Featured",
- "Free",
- "General Events",
- "Health & Public Safety",
- "Hearings and Meetings",
- "Holidays",
- "Kids and Family ",
- "Parks & Recreation",
- "Street and Neighborhood",
- "Tours",
- "Volunteer"].each do |c| %>
-	<%= label_tag(c) %>
-  <%= check_box_tag("categories[]", c) %>
-<% end %><br>
 <%= submit_tag "Search" %>
 <% end %>
