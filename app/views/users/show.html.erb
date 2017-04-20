@@ -1,34 +1,107 @@
-<h1>User Show Page!</h1>
-<h4>Name:</h4>
-<%= @user.name %><br>
-<h4>Zip Code:</h4>
-<%= @user.zip %><br>
-<h4>Borough</h4>
-<%= borough_name(@user.borough) %><br>
-<h4>Username:</h4>
-<%= @user.username %><br>
+<div class="row">
+  <div class="col s12">
+      <h1 class="center-align">Hello <%= @user.name %>!</h1>
+  </div>
+</div>
 
-<h3>Upcoming Events</h3>
-<ul>
-<% @user.events.each do |event| %>
-<li><%= link_to event.name, event_path(event) %> - <%= readable_time(event.start_time) %>
-<ul>
-  <li><%= link_to "Delete", cancel_path(:event_id => event.id), method: 'delete' %></li>
-</ul>
-</li>
-<% end %>
-</ul>
+<!-- <div class="row">
+  
+  <div class="col s6">
+    <h3>My Info</h3>
+  </div>
+  <div class="col s6">
+    <h3>My Upcoming Events</h3>
+  </div>
 
-<% if session[:user_id] == @user.id %>
-<%= link_to "Edit My Information", edit_user_path(@user) %>
-<% end %><br>
-<%= link_to "Log Out", logout_path, method: 'delete' %>
+</div>
 
-<%= month_calendar events: @events do |date, events| %>
-  <%= date %>
-  <% events.each do |event| %>
-	  <div>
-	    <%= link_to event.name, event_path(event) %>
-	  </div>
-  <% end %>
-<% end %>
+<div class="row">
+
+  <div class="col s6">
+    <h5>Name:</h5>
+    <p><%= @user.name %></p>
+    <h5>Zip Code:</h5>
+    <p><%= @user.zip %></p>
+    <h5>Borough:</h5>
+    <p><%= borough_name(@user.borough) %></p>
+    <h5>Username:</h5>
+    <p><%= @user.username %></p>
+    <% if session[:user_id] == @user.id %>
+      <p><%= link_to "Edit My Information", edit_user_path(@user) %></p>
+    <% end %>
+  </div>
+  <div class="col s6">
+    <ul>
+    <% @user.events.each do |event| %>
+      <li><%= link_to event.name, event_path(event) %> - <%= readable_time(event.start_time) %>
+      <ul>
+        <li><%= link_to "Delete", cancel_path(:event_id => event.id), method: 'delete' %></li><br>
+      </ul>
+      </li>
+    <% end %>
+    </ul>
+  </div>
+
+</div> -->
+
+
+<div class="row">
+  
+  <div class="col s8">
+    <h3>My Upcoming Events</h3>
+  </div> 
+  <div class="col s4">
+    <h3>My Info</h3>
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col s8">
+    <ul>
+    <% @user.events.each do |event| %>
+      <li><%= link_to event.name, event_path(event) %> - <%= readable_time(event.start_time) %>
+      <ul>
+        <li><%= link_to "Delete", cancel_path(:event_id => event.id), method: 'delete' %></li><br>
+      </ul>
+      </li>
+    <% end %>
+    </ul>
+  </div>
+
+  <div class="col s4">
+    <h5>Name:</h5>
+    <p><%= @user.name %></p>
+    <h5>Zip Code:</h5>
+    <p><%= @user.zip %></p>
+    <h5>Borough:</h5>
+    <p><%= borough_name(@user.borough) %></p>
+    <h5>Username:</h5>
+    <p><%= @user.username %></p>
+    <% if session[:user_id] == @user.id %>
+      <p><%= link_to "Edit My Information", edit_user_path(@user) %></p>
+    <% end %>
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="col s12">
+    <h3>My Calendar</h3>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col s12">
+    <%= month_calendar events: @events do |date, events| %>
+      <%= date %>
+      <% events.each do |event| %>
+    	  <br>
+        <div>
+    	    <%= link_to event.name, event_path(event) %>
+    	  </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
