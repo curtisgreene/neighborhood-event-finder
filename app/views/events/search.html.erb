@@ -1,14 +1,27 @@
-<h1>Search for Events</h1>
-
-<%= form_tag events_path method:'post' do %>
-<%= label_tag :keywords %>
-<%= text_field_tag "keywords" %><br>
-<%= label_tag :boroughs %>
-<% [['Bronx', 'Bx'], ['Brooklyn', 'Bk'], ['Manhattan', 'Mn'], ['Queens', 'Qn'], ['Staten Island', 'SI']].each do |b| %>
-	<%= label_tag(b.first) %>
-  <%= check_box_tag("boroughs[]", b.last) %>
-<% end %><br>
-<%= label_tag :zip %>
-<%= number_field_tag "zip" %><br>
-<%= submit_tag "Search" %>
-<% end %>
+<h3>Looking for something to do?</h3>
+<div class="row">
+        <div class="col s8 offset-s2">
+          <div class="card gret darken-1">
+            <div class="card-content black-text">
+              <span class="card-title">Search for Events</span>
+							<%= form_tag events_path method:'post' do %>
+							<div class=".input-field">
+							<%= label_tag :keywords %>
+							<%= text_field_tag "keywords" %><br>
+							<label>Borough</label>
+							  <select name="boroughs" class="browser-default">
+							    <option value="" disabled selected>Choose your borough</option>
+							    <option value="Mn">Manhattan</option>
+							    <option value="Bk">Brooklyn</option>
+							    <option value="Bx">Bronx</option>
+							    <option value="Qn">Queens</option>
+							    <option value="SI">Staten Island</option>
+							  </select>
+							<%= label_tag :zip %>
+							<%= number_field_tag "zip" %><br>
+							<%= submit_tag "Search" %>
+							</div>
+							<% end %>
+          </div>
+        </div>
+      </div>

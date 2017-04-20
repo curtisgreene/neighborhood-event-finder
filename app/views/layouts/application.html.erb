@@ -1,85 +1,86 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>EventFinder</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>EventFinder</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
 
-  <body>
-  <div class="container">
-    <header>
-
-      <nav>
-        <div class="nav-wrapper amber lighten-1">
+<body>
+  <header>
+    <nav>
+      <div class="nav-wrapper amber lighten-1">
+        <div class="container">
           <a href="#" class="brand-logo center">Event Finder</a>
           <ul id="nav-mobile" class="left hide-on-med-and-down">
             <% unless logged_in? %>
-          <li>
-           <a href="/users/new">Sign Up</a></li>
-          </li>
-          <li>
-           <a href="/login">Sign In</a></li>
-          </li>
-           <% end %>
-           <% if logged_in? %>
-           <li>
-             <%= link_to "#{current_user.name}", user_path(current_user.id) %>
-           </li>
-          <li>
-           <%= link_to "Nearby Events", nearby_events_path %>
-          </li>
-          <li>
-            <%= link_to "Search for Events", search_path %>
-         </li>
-         <% end %>
-        </ul>
+            <li>
+              <a href="/users/new">Sign Up</a></li>
+            </li>
+            <li>
+              <a href="/login">Sign In</a></li>
+            </li>
+            <% end %>
+            <% if logged_in? %>
+            <li>
+              <%= link_to "#{current_user.name}", user_path(current_user.id) %>
+            </li>
+            <li>
+              <%= link_to "Nearby Events", nearby_events_path %>
+            </li>
+            <% end %>
+          </ul>
           <% if logged_in? %>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li>
-            <%= link_to "Log Out", logout_path, method: 'delete' %>
-          </li>
-        </ul>
-        <% end %>
-      </div>
-    </nav>
-  </header>
-  <main>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li>
+              <%= link_to "Search for Events", search_path %>
+            </li>
+            <li>
+              <%= link_to "Log Out", logout_path, method: 'delete' %>
+            </li>
+          </ul>
+          <% end %>
+        </div>
+      </nav>
+    </header>
+      <main>
+        <div class="container">
 
-      <%= yield %>
+        <%= yield %>
 
-  </main>
+        </div>
+      </main>
     <footer class="page-footer amber lighten-1">
-       <div class="container">
-         <div class="row">
-           <div class="col l6 s12">
-             <h5 class="white-text">The Event Finder</h5>
-             <p class="grey-text text-lighten-4">Events provided by NYC Open Data. To learn more about NYC's available datasets and APIs, <a href="https://opendata.cityofnewyork.us/">visit their website.</a></p>
-           </div>
-           <div class="col l4 offset-l2 s12">
-             <h5 class="white-text">Navigation</h5>
-             <ul>
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">The Event Finder</h5>
+            <p class="grey-text text-lighten-4">Events provided by NYC Open Data. To learn more about NYC's available datasets and APIs, <a href="https://opendata.cityofnewyork.us/">visit their website.</a></p>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <h5 class="white-text">Navigation</h5>
+            <ul>
               <% if logged_in? %>
-               <li><a class="grey-text text-lighten-3" href="/search">Search</a></li>
-               <li><a class="grey-text text-lighten-3" href="/nearby">Nearby Events</a></li>
-               <li><a class="grey-text text-lighten-3" href="/user/#{current_user.id}">My Events</a></li>
-               <% else %>
-               <li><a class="grey-text text-lighten-3" href="/users/new">Sign Up</a></li>
-               <li><a class="grey-text text-lighten-3" href="/signin">Sign In</a></li>
-               <% end %>
-             </ul>
-           </div>
-         </div>
-       </div>
-       <div class="footer-copyright">
-         <div class="container">
-         © 2017 Sarah Bruce and Curtis Greene
-         <a class="grey-text text-lighten-4 right" href="https://github.com/curtisgreene/neighborhood-event-finder/">GitHub Repo</a>
-         </div>
-       </div>
-     </footer>
-  </div>
+              <li><a class="grey-text text-lighten-3" href="/search">Search</a></li>
+              <li><a class="grey-text text-lighten-3" href="/nearby">Nearby Events</a></li>
+              <li><a class="grey-text text-lighten-3" href="/user/#{current_user.id}">My Events</a></li>
+              <% else %>
+              <li><a class="grey-text text-lighten-3" href="/users/new">Sign Up</a></li>
+              <li><a class="grey-text text-lighten-3" href="/signin">Sign In</a></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+          © 2017 Sarah Bruce and Curtis Greene
+          <a class="grey-text text-lighten-4 right" href="https://github.com/curtisgreene/neighborhood-event-finder/">GitHub Repo</a>
+        </div>
+      </div>
+    </footer>
   </body>
-</html>
+  </html>
