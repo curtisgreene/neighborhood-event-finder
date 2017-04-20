@@ -9,6 +9,7 @@
   </head>
 
   <body>
+  <div class="container">
 
                <!--  nav here -->
                  <% unless logged_in? %>
@@ -34,10 +35,9 @@
                </li>
                  <% end %>
               </ul>
-            </div><!--/.nav-collapse -->
-          </div>
-        </div>
+
 
     <%= yield %>
+  </div>
   </body>
 </html>
