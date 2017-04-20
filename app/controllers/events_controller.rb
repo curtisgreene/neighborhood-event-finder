@@ -45,22 +45,10 @@ class EventsController < ApplicationController
     data = JSON.parse(response)
     @results = []
     data["items"].each do |event_data|
-      event = Event.find_or_create_by(name: event_data["name"], start_time: event_data["startDate"])
-      event.name = event_data["name"]
-      event.description = event_data["shortDesc"]
-      event.start_time = event_data["startDate"]
-      event.end_time = event_data["endDate"]
-      event.location = event_data["location"]
-      event.borough = event_data["boroughs"] # can contain multiple borough
-      event.website = event_data["website"]
-      event.category = event_data["categories"] #can contain multiple categories
-      event.address = event_data["address"]
-      event.city = event_data["city"]
-      event.state = event_data["state"]
-      event.zip = event_data["zip"]
-      event.address = event_data["address"]
-      event.save
-      @results << event
+      @event = Event.find_or_create_by(name: event_data["name"], start_time: event_data["startDate"])
+      @event.assign(event_data)
+      @event.save
+      @results << @event
     end
   end
 

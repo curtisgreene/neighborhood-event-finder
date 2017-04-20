@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_user, :logged_in?, :logged_in_user, :borough_names, :borough_name, :readable_time
 
-  private
+private
 
     def current_user
       @user ||= User.find(session[:user_id])

@@ -4,19 +4,19 @@ class Event < ApplicationRecord
   has_many :users, through: :appointments
 
 	def assign(event_data)
-	  name = event_data["name"]
-    description = event_data["shortDesc"]
-    start_time = event_data["startDate"]
-    end_time = event_data["endDate"]
-    location = event_data["location"]
-    borough = event_data["boroughs"] # can contain multiple borough
-    website = event_data["website"]
-    category = event_data["categories"] #can contain multiple categories
-    address = event_data["address"]
-    city = event_data["city"]
-    state = event_data["state"]
-    zip = event_data["zip"]
-    address = event_data["address"]
+	  self.name = event_data["name"]
+    self.description = event_data["shortDesc"]
+    self.start_time = event_data["startDate"]
+    self.end_time = event_data["endDate"]
+    self.location = event_data["location"]
+    self.borough = event_data["boroughs"] # can contain multiple borough
+    self.website = event_data["website"]
+    self.category = event_data["categories"] #can contain multiple categories
+    self.address = event_data["address"]
+    self.city = event_data["city"]
+    self.state = event_data["state"]
+    self.zip = event_data["zip"]
+    self.address = event_data["address"]
   end
-   
+
 end
