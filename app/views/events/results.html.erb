@@ -1,18 +1,20 @@
-<h1>Search Results</h1>
 
+<h3>Search Results</h3>
+<div class="divider"></div>
 
 <% if @results.empty? %>
-<h4>No events matched your search. <%= link_to "Please try again", search_path %></h4>
+  <h4>No events match your search. <%= link_to "Please try again.", search_path %></h4><br>
+<% else %>
+  <ul>
+    <% @results.each do |event| %>
+    <li>
+     <h5><%= link_to event.name, event_path(event) %></h5>
+     <ul>
+       <li>
+         <%= readable_time(event.start_time) %>
+       </li><br>
+     </ul>
+    </li>
+    <% end %>
+  </ul>
 <% end %>
-<ul>
-  <% @results.each do |event| %>
-  <li>
-   <%= link_to event.name, event_path(event) %>
-   <ul>
-     <li>
-       <%= readable_time(event.start_time) %>
-     </li>
-   </ul>
-  </li>
-  <% end %>
-</ul>

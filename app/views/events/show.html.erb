@@ -1,48 +1,38 @@
-<h1>Learn more about <%= @event.name %></h1>
-<ul>
-  <% if @event.description.present? %>
-  <li>
-    <%= @event.description %>
-  </li>
-  <% end %>
-  <% if @event.start_time.present? %>
-  <li>
-    <%= readable_time(@event.start_time) %>
-    <% if @event.end_time.present? %>
-    <%= "- #{readable_time(@event.end_time)}" %>
-    <% end %>
-  </li>
-  <% end %>
-  <% if @event.city.present? %>
-  <li>
-    <%= @event.city %>
-  </li>
-  <% elsif @event.borough.present? %>
-  <li>
-    <%= borough_names(@event.borough) %>
-  </li>
-  <% end %>
-  <% if @event.location.present? %>
-  <li>
-    <%= @event.location %>
-  </li>
-  <% end %>
-  <% if @event.address.present? %>
-  <li>
-    <%= @event.address %>
-  </li>
-  <% end %>
-  <% if @event.website.present? %>
-  <li>
-    <%= link_to "Learn more about this event", @event.website %>
-  </li>
-  <% end %>
-</ul>
+<h3><%= @event.name %></h3>
+<div class="divider"></div>
+
+<% if @event.description.present? %>
+  <h5><%= @event.description %></h5>
+<% end %>
+
+<% if @event.start_time.present? %>
+  <p><%= readable_time(@event.start_time) %>
+  <% if @event.end_time.present? %>
+  <%= "- #{readable_time(@event.end_time)}" %>
+  <% end %></p>
+<% end %>
+
+<% if @event.location.present? %>
+  <p><%= @event.location %></p>
+<% end %>
+
+<% if @event.address.present? %> 
+  <p><%= @event.address %>
+<% end %>
+<% if @event.city.present? %>
+  <br><%= @event.city %>
+<% elsif @event.borough.present? %>
+  <br><%= borough_names(@event.borough) %>
+<% end %></p>
+
+<% if @event.website.present? %>
+  <p><%= link_to "Learn more about this event", @event.website %></p>
+<% end %>
 
 <% if current_user.events.include?(@event)%>
 <p>You are already attending this event! Have fun!</p>
 <% else %>
 <%= link_to "Create Appointment", "/appointments/#{@event.id}", method:'post'%>
-<% end %>
+<% end %><br><br>
 
 
