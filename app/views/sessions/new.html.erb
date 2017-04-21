@@ -1,9 +1,21 @@
-<h1>Please log in!</h1>
+<div class="row">
+  <div class="col s8 offset-s2">
+    <h3>Log In</h3>
+  </div>
+</div>
 
-<%= form_tag '/sessions' do %>
-<%= label_tag :"user[username]", "Username" %><br>
-<%= text_field_tag :"user[username]" %><br>
-<%= label_tag :"user[password]", "Password" %><br>
-<%= password_field_tag :"user[password]" %><br>
-<%= submit_tag "Sign In"%>
-<% end %>
+<div class="row">
+  <div class="col s8 offset-s2">
+    <div class="card white">
+      <div class="card-content black-text">
+    		<%= form_tag '/sessions' do %>
+    			<%= label_tag :"user[username]", "Username" %><br>
+    			<%= text_field_tag :"user[username]" %><br>
+    			<%= label_tag :"user[password]", "Password" %><br>
+    			<%= password_field_tag :"user[password]" %><br>
+    			<%= submit_tag "Log In"%>
+    		<% end %>
+      </div>
+    </div>
+  </div>
+</div>

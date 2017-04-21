@@ -1,29 +1,30 @@
-<!-- <div class="row">
-  <div class="col s8 offset-s2">
-    <br>
-    <h3>Events in your borough:</h3>
-  </div>
-</div> -->
-<div class="section">
+<br>
 <div class="row">
   <div class="col s8 offset-s2">
-    <div class="collection with-header">
-      <h4 class="collection-header">Upcoming Events In Your Borough</h4>
+    <h4>Upcoming Events In Your Borough:</h4>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col s8 offset-s2">
+    <div class="collection">
       <% @nearby_events.each do |event| %>
         <a href="<%=event_path(event)%>" class="collection-item"><%=event.name%></a>
       <% end %>
     </div>
   </div>
 </div>
+
+<div class="row">
+  <div class="col s12">
+    <%= week_calendar events: @nearby_events do |date, nearby_events| %>
+      <%= date %>
+      <% nearby_events.each do |nearby_event| %>
+    	  <div>
+    	    <%= link_to nearby_event.name, event_path(nearby_event) %>
+    	  </div><br>
+      <% end %>
+    <% end %>
+    <br>
+  </div>
 </div>
-
-
-<%= week_calendar events: @nearby_events do |date, nearby_events| %>
-  <%= date %>
-  <% nearby_events.each do |nearby_event| %>
-	  <div>
-	    <%= link_to nearby_event.name, event_path(nearby_event) %>
-	  </div><br>
-  <% end %>
-<% end %>
-<br>

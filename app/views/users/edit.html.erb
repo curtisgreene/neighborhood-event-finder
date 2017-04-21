@@ -1,22 +1,29 @@
-<% if session[:user_id] == @user.id %>
-<h1>Edit Your Information!</h1>
-<%= form_for(@user) do |f| %>
-<%= f.label :name %><br>
-<%= f.text_field :name %><br>
-<%= f.label :username %><br>
-<%= f.text_field :username %><br>
-<%= f.label :zip %><br>
-<%= f.number_field :zip %><br>
-<%= f.label :borough %><br>
-<%= f.select(:borough) do %>
-  <% [['Bronx', 'Bx'], ['Brooklyn', 'Bk'], ['Manhattan', 'Mn'], ['Queens', 'Qn'], ['Staten Island', 'SI']].each do |b| %>
-    <%= content_tag(:option, b.first, value: b.last) %>
-  <% end %>
-<% end %><br>
-<%= f.label :password %><br>
-<%= f.password_field :password %><br>
-<%= f.submit "Update Info" %>
-<% end %>
-<% else %>
-<p>Nosey little bugger, ain't ya?</p>
-<% end %>
+<div class="row">
+  <div class="col s8 offset-s2">
+    <div class="card white">
+      <div class="card-content black-text">
+        <span class="card-title">Edit Your Info</span>
+        <%= form_for(@user) do |f| %>
+          <%= f.label :name %><br>
+          <%= f.text_field :name %><br>
+          <%= f.label :username %><br>
+          <%= f.text_field :username %><br>
+          <%= f.label :zip %><br>
+          <%= f.number_field :zip %><br>
+          <label>Borough</label>
+            <select name="user[borough]" class="browser-default">
+              <option value="" disabled selected>Choose your borough</option>
+              <option value="Mn">Manhattan</option>
+              <option value="Bk">Brooklyn</option>
+              <option value="Bx">Bronx</option>
+              <option value="Qn">Queens</option>
+              <option value="SI">Staten Island</option>
+            </select>
+          <%= f.label :password %><br>
+          <%= f.password_field :password %><br>
+          <%= f.submit "Update Info" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
