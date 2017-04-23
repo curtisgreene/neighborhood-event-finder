@@ -1,18 +1,23 @@
 <h1>Search Results</h1>
 
-
 <% if @results.empty? %>
 <h4>No events matched your search. <%= link_to "Please try again", search_path %></h4>
 <% end %>
-<ul>
-  <% @results.each do |event| %>
-  <li>
-   <%= link_to event.name, event_path(event) %>
-   <ul>
-     <li>
-       <%= readable_time(event.start_time) %>
-     </li>
-   </ul>
-  </li>
-  <% end %>
-</ul>
+
+
+<div class="row">
+
+  <div class="col s8">
+    <div class="card blue-grey lighten-5">
+      <div class="card-content black-text">
+        <h4>Search Results</h4>
+        <div class="divider"></div>
+        <ul>
+        <% @results.each do |event| %>
+          <li><%= link_to event.name, event_path(event) %> - <%= readable_time(event.start_time) %>
+          </li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
