@@ -21,7 +21,7 @@
               <a href="/users/new">Sign Up</a></li>
             </li>
             <li>
-              <a href="/login">Sign In</a></li>
+              <a href="/login">Log In</a></li>
             </li>
             <% end %>
             <% if logged_in? %>
@@ -69,7 +69,7 @@
               <li><a class="grey-text text-lighten-3" href="/users/<%= current_user.id %>">My Events</a></li>
               <% else %>
               <li><a class="grey-text text-lighten-3" href="/users/new">Sign Up</a></li>
-              <li><a class="grey-text text-lighten-3" href="/signin">Sign In</a></li>
+              <li><a class="grey-text text-lighten-3" href="/login">Log In</a></li>
               <% end %>
             </ul>
           </div>
