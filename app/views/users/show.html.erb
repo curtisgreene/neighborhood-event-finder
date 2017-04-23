@@ -12,7 +12,7 @@
         <h4>My Upcoming Events</h4>
         <div class="divider"></div>
         <ul>
-        <% @user.events.each do |event| %>
+        <% @upcoming_events.each do |event| %>
           <li><%= link_to event.name, event_path(event) %> - <%= readable_time(event.start_time) %>
           <ul>
             <li><%= link_to "Delete", cancel_path(:event_id => event.id), method: 'delete' %></li><br>
@@ -59,7 +59,7 @@
 
 <div class="row">
   <div class="col s12">
-    <%= month_calendar events: @events do |date, events| %>
+    <%= month_calendar events: @upcoming_events do |date, events| %>
       <%= date %>
       <% events.each do |event| %>
     	  <br>
