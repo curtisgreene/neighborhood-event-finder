@@ -65,8 +65,8 @@
             <ul>
               <% if logged_in? %>
               <li><a class="grey-text text-lighten-3" href="/search">Search</a></li>
-              <li><a class="grey-text text-lighten-3" href="/nearby">Nearby Events</a></li>
-              <li><a class="grey-text text-lighten-3" href="/user/#{current_user.id}">My Events</a></li>
+              <li><a class="grey-text text-lighten-3" href="/events/nearby">Nearby Events</a></li>
+              <li><a class="grey-text text-lighten-3" href="/users/<%= current_user.id %>">My Events</a></li>
               <% else %>
               <li><a class="grey-text text-lighten-3" href="/users/new">Sign Up</a></li>
               <li><a class="grey-text text-lighten-3" href="/signin">Sign In</a></li>
