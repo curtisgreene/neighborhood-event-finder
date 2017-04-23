@@ -1,4 +1,5 @@
 class AppointmentsController < ApplicationController
+  before_action :logged_in_user
 
   def new
     @events = Event.all

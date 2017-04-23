@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :logged_in_user
+  skip_before_action :logged_in_user, only: [:new, :create]
 
   def index
     @users = User.all
@@ -28,6 +30,7 @@ class UsersController < ApplicationController
     @user.update(user_params)
     redirect_to user_path(@user)
   end
+
   private
 
   def user_params
