@@ -12,16 +12,20 @@
         <h4>My Upcoming Events</h4>
         <div class="divider"></div>
         <ul>
-        <% @user.events.each do |event| %>
+          <% if @user.events.empty? %>
+          <li>You don't have any upcoming events yet! Find <%= link_to "nearby events", nearby_events_path %> or <%= link_to "search", search_path %> for some!</li>
+          <% else %>
+          <% @user.events.each do |event| %>
           <li><%= link_to event.name, event_path(event) %> - <%= readable_time(event.start_time) %>
-          <ul>
-            <li><%= link_to "Delete", cancel_path(:event_id => event.id), method: 'delete' %></li><br>
-          </ul>
+            <ul>
+              <li><%= link_to "Delete", cancel_path(:event_id => event.id), method: 'delete' %></li><br>
+            </ul>
           </li>
-        <% end %>
+          <% end %>
+          <% end %>
         </ul>
       </div>
-    </div>  
+    </div>
   </div>
 
   <div class="col s4">
@@ -38,9 +42,9 @@
         <h5>Username:</h5>
         <p><%= @user.username %></p>
         <% if session[:user_id] == @user.id %>
-          <div class="card-action">
-            <%= link_to "Edit My Information", edit_user_path(@user) %>
-          </div>
+        <div class="card-action">
+          <%= link_to "Edit My Information", edit_user_path(@user) %>
+        </div>
         <% end %>
       </div>
     </div>
@@ -60,13 +64,13 @@
 <div class="row">
   <div class="col s12">
     <%= month_calendar events: @events do |date, events| %>
-      <%= date %>
-      <% events.each do |event| %>
-    	  <br>
-        <div>
-    	    <%= link_to event.name, event_path(event) %>
-    	  </div>
-      <% end %>
+    <%= date %>
+    <% events.each do |event| %>
+    <br>
+    <div>
+      <%= link_to event.name, event_path(event) %>
+    </div>
+    <% end %>
     <% end %>
   </div>
 </div>

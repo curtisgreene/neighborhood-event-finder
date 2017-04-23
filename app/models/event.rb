@@ -3,6 +3,7 @@ class Event < ApplicationRecord
   has_many :appointments
   has_many :users, through: :appointments
 
+  
 	def assign(event_data)
 	  self.name = event_data["name"]
     self.description = event_data["shortDesc"]
