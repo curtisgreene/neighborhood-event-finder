@@ -26,7 +26,7 @@
 <% end %></p>
 
 <% if @event.website.present? %>
-  <p><%= link_to "Learn more about this event", @event.website %></p>
+  <p><%= link_to "Learn more about this event", @event.website, target: "_blank" %></p>
 <% end %>
 
 <% if current_user.events.include?(@event)%>
