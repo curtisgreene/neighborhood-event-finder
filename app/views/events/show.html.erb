@@ -1,5 +1,4 @@
 <h3><%= @event.name %></h3>
-<div class="divider"></div>
 
 <% if @event.description.present? %>
   <h5><%= @event.description %></h5>
@@ -16,7 +15,7 @@
   <p><%= @event.location %></p>
 <% end %>
 
-<% if @event.address.present? %> 
+<% if @event.address.present? %>
   <p><%= @event.address %>
 <% end %>
 <% if @event.city.present? %>
@@ -32,7 +31,18 @@
 <% if current_user.events.include?(@event)%>
 <p>You have already saved this event.</p>
 <% else %>
-<%= link_to "Save this event", "/appointments/#{@event.id}", method:'post'%>
+
+<%= button_to "Create Appointment", "/appointments/#{@event.id}", method:'post', class: 'waves-effect indigo lighten-1 btn'%>
+
 <% end %><br><br>
 
-
+<div class="row">
+  <div class="col s12 z-depth-4">
+    <div class="video-container">
+      <iframe width="300" height="300" frameborder="0" style="border:0"
+ src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDAMXzEJ-6rnKg4ARdVVzNN6iThBa-aLwA&q=<%= @event.address %>"
+ allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</div>

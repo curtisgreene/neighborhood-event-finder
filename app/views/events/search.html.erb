@@ -1,14 +1,14 @@
 <h3>Looking for something to do?</h3>
 <div class="row">
         <div class="col s8 offset-s2">
-          <div class="card white">
+          <div class="card white z-depth-4">
             <div class="card-content black-text">
               <span class="card-title">Search for Events</span>
 							<%= form_tag events_path method:'post' do %>
 							<div class=".input-field">
-							<%= label_tag :keywords %>
+							<h6>Keywords</h6>
 							<%= text_field_tag "keywords" %><br>
-							<label>Borough</label>
+							<h6>Borough</h6>
 							  <select name="boroughs" class="browser-default">
 							    <option value="" disabled selected>Choose your borough</option>
 							    <option value="Mn">Manhattan</option>
@@ -17,7 +17,7 @@
 							    <option value="Qn">Queens</option>
 							    <option value="SI">Staten Island</option>
 							  </select>
-							<%= label_tag :zip %>
+							<h6>Zip</h6>
 							<%= number_field_tag "zip" %><br>
 							<%= submit_tag "Search" %>
 							</div>
@@ -25,3 +25,9 @@
           </div>
         </div>
       </div>
+
+<div class="row">
+ <div class="col s12">
+  <h5>Or, browse events <%= link_to "happening in your borough!", nearby_events_path %></h5>
+</div>
+</div>
