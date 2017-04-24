@@ -63,14 +63,14 @@
 
 <div class="row z-depth-4">
   <div class="col s12">
-    <%= month_calendar events: @events do |date, events| %>
-    <%= date %>
-    <% events.each do |event| %>
-    <br>
-    <div>
-      <%= link_to event.name, event_path(event) %>
-    </div>
-    <% end %>
+    <%= month_calendar events: @upcoming_events do |date, events| %>
+      <%= date %>
+      <% events.each do |event| %>
+    	  <br>
+        <div>
+    	    <%= link_to event.name, event_path(event) %>
+    	  </div>
+      <% end %>
     <% end %>
   </div>
 </div>

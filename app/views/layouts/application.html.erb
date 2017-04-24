@@ -21,7 +21,7 @@
               <a href="/users/new">Sign Up</a></li>
             </li>
             <li>
-              <a href="/login">Sign In</a></li>
+              <a href="/login">Log In</a></li>
             </li>
             <% end %>
             <% if logged_in? %>
@@ -58,7 +58,7 @@
         <div class="row">
           <div class="col l6 s12">
             <h5 class="white-text">The Event Finder</h5>
-            <p class="grey-text text-lighten-4">Events provided by NYC Open Data. To learn more about NYC's available datasets and APIs, <a href="https://opendata.cityofnewyork.us/">visit their website.</a></p>
+            <p class="grey-text text-lighten-4">Events provided by NYC Open Data. To learn more about NYC's available datasets and APIs, <a href="https://opendata.cityofnewyork.us/" target="_blank">visit their website.</a></p>
           </div>
           <div class="col l4 offset-l2 s12">
             <h5 class="white-text">Navigation</h5>
@@ -69,7 +69,7 @@
               <li><a class="grey-text text-lighten-3" href="/users/<%=current_user.id%>">My Events</a></li>
               <% else %>
               <li><a class="grey-text text-lighten-3" href="/users/new">Sign Up</a></li>
-              <li><a class="grey-text text-lighten-3" href="/signin">Sign In</a></li>
+              <li><a class="grey-text text-lighten-3" href="/login">Log In</a></li>
               <% end %>
             </ul>
           </div>
@@ -78,7 +78,7 @@
       <div class="footer-copyright">
         <div class="container">
           © 2017 Sarah Bruce and Curtis Greene
-          <a class="grey-text text-lighten-4 right" href="https://github.com/curtisgreene/neighborhood-event-finder/">GitHub Repo</a>
+          <a class="grey-text text-lighten-4 right" href="https://github.com/curtisgreene/neighborhood-event-finder/" target="_blank">GitHub Repo</a>
         </div>
       </div>
     </footer>
