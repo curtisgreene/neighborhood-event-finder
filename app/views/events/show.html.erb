@@ -26,13 +26,13 @@
 <% end %></p>
 
 <% if @event.website.present? %>
-  <p><%= link_to "Learn more about this event", @event.website %></p>
+  <p><%= link_to "Learn more about this event", @event.website, target: "_blank" %></p>
 <% end %>
 
 <% if current_user.events.include?(@event)%>
-<p>You are already attending this event! Have fun!</p>
+<p>You have already saved this event.</p>
 <% else %>
-<%= link_to "Create Appointment", "/appointments/#{@event.id}", method:'post'%>
+<%= link_to "Save this event", "/appointments/#{@event.id}", method:'post'%>
 <% end %><br><br>
 
 
